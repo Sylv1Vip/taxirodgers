@@ -73,7 +73,7 @@ export default function Hero() {
             <h1 data-hero className="max-w-xl">
               <span className="block font-heading font-light text-ink-muted text-base md:text-lg
                 tracking-[0.3em] uppercase mb-3">
-                Votre taxi en Guadeloupe
+                Votre taxi & VTC en Guadeloupe
               </span>
               <span className="block font-heading font-bold text-ink text-4xl sm:text-5xl md:text-6xl
                 lg:text-7xl leading-[0.95] tracking-tight">
@@ -97,8 +97,8 @@ export default function Hero() {
 
             <p data-hero className="text-ink-muted text-base md:text-lg mt-6 font-body font-light
               max-w-md leading-relaxed">
-              Chauffeur prive, transferts aeroport, excursions touristiques et transport medical
-              conventionne. Depuis 2019 en Guadeloupe.
+              Taxi agree et chauffeur prive VTC. Transferts aeroport, excursions touristiques
+              et transport medical conventionne. Depuis 2019 en Guadeloupe.
             </p>
 
             {/* CTAs */}

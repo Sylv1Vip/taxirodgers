@@ -23,6 +23,7 @@ export default function Navbar() {
     { href: "#accueil", label: "Accueil" },
     { href: "#services", label: "Services" },
     { href: "#flotte", label: "Flotte" },
+    { href: "#taxi-vtc", label: "Taxi & VTC" },
     { href: "#apropos", label: "A propos" },
     { href: "#contact", label: "Contact" },
   ];
@@ -30,25 +31,25 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-50 px-4 md:px-7 py-2.5
+        className={`fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-50 pl-3 pr-4 md:pl-4 md:pr-6 py-2
           rounded-pill transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
-          flex items-center gap-4 md:gap-7 max-w-[95vw]
+          flex items-center gap-4 xl:gap-6 max-w-[98vw]
           ${scrolled
             ? "bg-white/80 backdrop-blur-2xl border border-mist/60 shadow-[0_4px_30px_rgba(36,57,105,0.08)]"
             : "bg-white/40 backdrop-blur-md border border-white/60"
           }`}
       >
         <a href="#accueil" className="flex-shrink-0">
-          <img src={LOGO_URL} alt="Logo Taxi Rodgers" className="h-9 md:h-10 w-auto rounded-lg object-contain" />
+          <img src={LOGO_URL} alt="Logo Taxi Rodgers" className="h-12 md:h-14 w-auto rounded-xl object-contain" />
         </a>
 
-        <div className="hidden lg:flex items-center gap-5">
+        <div className="hidden xl:flex items-center gap-5 2xl:gap-6">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className="text-[13px] tracking-wide uppercase font-body font-light text-ink-light
-                hover:text-navy transition-colors duration-300"
+                hover:text-navy transition-colors duration-300 whitespace-nowrap"
             >
               {link.label}
             </a>
@@ -63,14 +64,14 @@ export default function Navbar() {
             ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex-shrink-0"
         >
           <Phone size={13} strokeWidth={2.5} />
-          <span className="relative z-10 font-data text-xs tracking-wide">0690 246 186</span>
+          <span className="relative z-10 font-data text-xs tracking-wide whitespace-nowrap">0690 246 186</span>
           <span className="absolute inset-0 bg-cyan translate-y-full group-hover:translate-y-0
             transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]" />
         </a>
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-ink-light hover:text-navy transition-colors p-1"
+          className="xl:hidden text-ink-light hover:text-navy transition-colors p-1"
           aria-label="Menu"
         >
           <div className="relative w-5 h-5">
@@ -86,7 +87,7 @@ export default function Navbar() {
 
       {/* Mobile overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-white/98 backdrop-blur-3xl lg:hidden
+        className={`fixed inset-0 z-40 bg-white/98 backdrop-blur-3xl xl:hidden
           flex flex-col items-center justify-center gap-7
           transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
           ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}

@@ -29,21 +29,21 @@ const steps = [
     title: "Reservez votre course",
     description: "Appelez le 0690 246 186 ou utilisez le formulaire de contact. Depuis l'etranger, reservez 48h a l'avance. Siege bebe disponible gratuitement.",
     icon: <CalendarCheck size={26} className="text-navy" strokeWidth={1.5} />,
-    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=400&q=80&fit=crop",
+    image: "/images/step1-reservation.webp",
   },
   {
     step: "02",
     title: "Prise en charge sur mesure",
     description: "Votre chauffeur vous attend a l'aeroport Pole Caraibes, au port maritime, a votre hotel ou domicile. Ponctualite garantie.",
     icon: <MapPin size={26} className="text-navy" strokeWidth={1.5} />,
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=400&q=80&fit=crop",
+    image: "/images/step2-pickup.webp",
   },
   {
     step: "03",
     title: "Arrivez en toute serenite",
     description: "Destination atteinte dans le confort d'une berline climatisee. A l'heure, en securite, l'esprit tranquille.",
     icon: <CircleCheckBig size={26} className="text-navy" strokeWidth={1.5} />,
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80&fit=crop",
+    image: "/images/step3-arrival.webp",
   },
 ];
 
@@ -117,9 +117,14 @@ export default function Protocol() {
                 </div>
 
                 {/* Right: image */}
-                <div className="hidden md:block w-32 h-24 rounded-[1rem] overflow-hidden flex-shrink-0
+                <div className="hidden md:block w-40 h-28 rounded-[1rem] overflow-hidden flex-shrink-0
                   border border-cloud/50">
-                  <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
+                  <img
+                    src={step.image}
+                    alt={step.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>

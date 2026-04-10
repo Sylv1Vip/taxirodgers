@@ -155,9 +155,10 @@ function ExcursionsCard() {
       {/* Guadeloupe image */}
       <div className="rounded-[1rem] overflow-hidden mb-5 border border-cloud/40">
         <img
-          src="https://images.unsplash.com/photo-1580541631950-7282082b02f5?w=600&q=80&fit=crop"
-          alt="Plage de Guadeloupe"
+          src="/images/guadeloupe-beach.webp"
+          alt="Plage paradisiaque de Guadeloupe"
           className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-700"
+          loading="lazy"
         />
       </div>
       <p className="text-ink-muted text-sm font-light leading-relaxed mb-4">

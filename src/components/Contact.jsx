@@ -5,10 +5,19 @@ import { Phone, Mail, Facebook, Clock, Send, Check } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const RECIPIENT_EMAIL = "taxi.rodgers971@gmail.com";
+
 export default function Contact() {
   const sectionRef = useRef(null);
   const [submitted, setSubmitted] = useState(false);
   const [rgpdChecked, setRgpdChecked] = useState(false);
+  const [formData, setFormData] = useState({
+    prenom: "",
+    nom: "",
+    email: "",
+    telephone: "",
+    message: "",
+  });
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -20,11 +29,52 @@ export default function Contact() {
     return () => ctx.revert();
   }, []);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!rgpdChecked) return;
+
+    const { prenom, nom, email, telephone, message } = formData;
+    const fullName = `${prenom} ${nom}`.trim();
+
+    const subject = `Demande de reservation — ${fullName || "Nouveau client"}`;
+
+    const body = [
+      "Bonjour Rodgers,",
+      "",
+      "Je souhaite effectuer une demande de reservation via votre site.",
+      "",
+      "--- MES COORDONNEES ---",
+      `Nom complet : ${fullName || "(non renseigne)"}`,
+      `Email : ${email || "(non renseigne)"}`,
+      `Telephone : ${telephone || "(non renseigne)"}`,
+      "",
+      "--- MA DEMANDE ---",
+      message || "(aucun message)",
+      "",
+      "---",
+      "Merci de me recontacter au plus vite.",
+      "",
+      "Cordialement,",
+      fullName || "Un visiteur du site",
+    ].join("\n");
+
+    const mailtoUrl = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Open user's mail client
+    window.location.href = mailtoUrl;
+
+    // Show success feedback
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ prenom: "", nom: "", email: "", telephone: "", message: "" });
+      setRgpdChecked(false);
+    }, 5000);
   };
 
   const contactItems = [
@@ -71,9 +121,10 @@ export default function Contact() {
             {/* Image */}
             <div className="rounded-container overflow-hidden border border-cloud mb-6">
               <img
-                src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80&fit=crop"
-                alt="Interieur vehicule confort Taxi Rodgers"
+                src="/images/taxi-road-guadeloupe.webp"
+                alt="Taxi Rodgers premium sur une route cotiere de Guadeloupe"
                 className="w-full h-48 object-cover"
+                loading="lazy"
               />
             </div>
 
@@ -99,6 +150,8 @@ export default function Contact() {
                   <div key={f.name} className="space-y-1.5">
                     <label className="block font-data text-[10px] text-ink-muted tracking-[0.15em] uppercase">{f.label}</label>
                     <input type="text" name={f.name} required placeholder={f.ph}
+                      value={formData[f.name]}
+                      onChange={handleChange}
                       className="w-full bg-snow border border-cloud rounded-[1rem] px-4 py-3
                         text-ink text-sm font-body font-light placeholder:text-ink-muted/40
                         focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/10
@@ -109,6 +162,8 @@ export default function Contact() {
               <div className="space-y-1.5">
                 <label className="block font-data text-[10px] text-ink-muted tracking-[0.15em] uppercase">Email</label>
                 <input type="email" name="email" required placeholder="votre@email.com"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full bg-snow border border-cloud rounded-[1rem] px-4 py-3
                     text-ink text-sm font-body font-light placeholder:text-ink-muted/40
                     focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/10
@@ -117,6 +172,8 @@ export default function Contact() {
               <div className="space-y-1.5">
                 <label className="block font-data text-[10px] text-ink-muted tracking-[0.15em] uppercase">Telephone</label>
                 <input type="tel" name="telephone" required placeholder="0690 XX XX XX"
+                  value={formData.telephone}
+                  onChange={handleChange}
                   className="w-full bg-snow border border-cloud rounded-[1rem] px-4 py-3
                     text-ink text-sm font-body font-light placeholder:text-ink-muted/40
                     focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/10
@@ -125,6 +182,8 @@ export default function Contact() {
               <div className="space-y-1.5">
                 <label className="block font-data text-[10px] text-ink-muted tracking-[0.15em] uppercase">Message</label>
                 <textarea name="message" rows={4} placeholder="Date, heure, lieu de prise en charge, destination..."
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full bg-snow border border-cloud rounded-[1rem] px-4 py-3
                     text-ink text-sm font-body font-light placeholder:text-ink-muted/40 resize-none
                     focus:border-cyan focus:outline-none focus:ring-2 focus:ring-cyan/10
@@ -154,7 +213,7 @@ export default function Contact() {
                       : "bg-cloud text-ink-muted/40 cursor-not-allowed"
                   }`}>
                 {submitted ? (
-                  <><Check size={15} /> Message envoye avec succes</>
+                  <><Check size={15} /> Client mail ouvert — verifiez votre application</>
                 ) : (
                   <>
                     <Send size={13} />
@@ -166,6 +225,16 @@ export default function Contact() {
                   </>
                 )}
               </button>
+
+              {/* Fallback phone */}
+              <p className="text-center text-ink-muted text-[11px] font-body font-light leading-relaxed pt-1">
+                Le formulaire ouvre votre application mail pre-remplie.
+                <br />
+                Probleme ? Appelez directement le{" "}
+                <a href="tel:0690246186" className="text-navy font-medium hover:text-cyan transition-colors">
+                  0690 246 186
+                </a>
+              </p>
             </form>
           </div>
         </div>
