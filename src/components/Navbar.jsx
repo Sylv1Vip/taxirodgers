@@ -1,8 +1,26 @@
 import { useState, useEffect } from "react";
 import { Phone, Menu } from "lucide-react";
 
-const LOGO_URL =
-  "https://www.taxirodgers.fr/wp-content/uploads/2026/03/logo-taxi-rodgers-2026_350px.jpg";
+export function LogoMark({ className = "", dark = true }) {
+  return (
+    <div className={`flex items-center gap-2.5 ${className}`}>
+      <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-heading font-bold text-base
+        ${dark ? "bg-navy text-white" : "bg-white/15 text-white"}`}>
+        TR
+      </div>
+      <div className="flex flex-col leading-none">
+        <span className={`font-heading font-semibold text-sm tracking-tight
+          ${dark ? "text-ink" : "text-white"}`}>
+          Taxi Rodgers
+        </span>
+        <span className={`font-data text-[8px] tracking-[0.2em] uppercase
+          ${dark ? "text-ink-muted" : "text-white/50"}`}>
+          Guadeloupe
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +58,7 @@ export default function Navbar() {
           }`}
       >
         <a href="#accueil" className="flex-shrink-0">
-          <img src={LOGO_URL} alt="Logo Taxi Rodgers" className="h-12 md:h-14 w-auto rounded-xl object-contain" />
+          <LogoMark dark />
         </a>
 
         <div className="hidden xl:flex items-center gap-5 2xl:gap-6">
@@ -92,15 +110,16 @@ export default function Navbar() {
           transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
           ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
-        <img
-          src={LOGO_URL} alt="Taxi Rodgers" className="h-16 w-auto rounded-xl mb-2 object-contain"
+        <div
           style={{
             transitionDelay: mobileOpen ? "80ms" : "0ms",
             transform: mobileOpen ? "translateY(0) scale(1)" : "translateY(1rem) scale(0.95)",
             opacity: mobileOpen ? 1 : 0,
             transition: "all 0.6s cubic-bezier(0.25,0.46,0.45,0.94)",
           }}
-        />
+        >
+          <LogoMark dark />
+        </div>
         {links.map((link, i) => (
           <a
             key={link.href}

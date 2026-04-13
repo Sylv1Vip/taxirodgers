@@ -151,7 +151,7 @@ export default function Hero() {
                 will-change-transform"
             >
               <img
-                src="https://www.taxirodgers.fr/wp-content/uploads/2021/10/vehicule-TAXIRODGERS-1.jpg"
+                src="/images/mercedes-beach-vtc.webp"
                 alt="Vehicule premium Taxi Rodgers Guadeloupe"
                 className="w-full h-auto object-cover aspect-[4/3]"
               />

@@ -9,13 +9,13 @@ const vehicles = [
   {
     name: "Berline Premium",
     seats: "5 places",
-    image: "https://www.taxirodgers.fr/wp-content/uploads/2021/10/vehicule-TAXIRODGERS-1.jpg",
+    image: "/images/mercedes-beach-vtc.webp",
     features: ["Sieges cuir & alcantara", "Climatisation bi-zone", "Coffre spacieux", "Chargeurs USB"],
   },
   {
     name: "Minibus Confort",
     seats: "9 places",
-    image: "https://www.taxirodgers.fr/wp-content/uploads/2019/09/peugeot-traveller2.jpg",
+    image: "/images/taxi-road-guadeloupe.webp",
     features: ["Ideal familles & groupes", "Espace bagages XXL", "Sieges inclinables", "Transferts collectifs"],
   },
 ];
