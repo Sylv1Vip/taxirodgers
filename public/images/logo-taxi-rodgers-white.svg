@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" fill="none">
+  <!-- Blue circle with T -->
+  <circle cx="28" cy="30" r="28" fill="#5a8fd4"/>
+  <text x="28" y="42" text-anchor="middle" font-family="'Outfit', system-ui, sans-serif" font-weight="700" font-size="34" fill="white">T</text>
+  <!-- axi. -->
+  <text x="58" y="43" font-family="'Outfit', system-ui, sans-serif" font-weight="400" font-size="30" fill="rgba(255,255,255,0.6)">axi.</text>
+  <!-- Rodgers. -->
+  <text x="120" y="43" font-family="'Outfit', system-ui, sans-serif" font-weight="700" font-size="30" fill="white">Rodgers.</text>
+  <!-- Vtc -->
+  <text x="270" y="43" font-family="'Outfit', system-ui, sans-serif" font-weight="700" font-size="30" fill="white">Vtc</text>
+</svg>

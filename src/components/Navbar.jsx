@@ -3,22 +3,11 @@ import { Phone, Menu } from "lucide-react";
 
 export function LogoMark({ className = "", dark = true }) {
   return (
-    <div className={`flex items-center gap-2.5 ${className}`}>
-      <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-heading font-bold text-base
-        ${dark ? "bg-navy text-white" : "bg-white/15 text-white"}`}>
-        TR
-      </div>
-      <div className="flex flex-col leading-none">
-        <span className={`font-heading font-semibold text-sm tracking-tight
-          ${dark ? "text-ink" : "text-white"}`}>
-          Taxi Rodgers
-        </span>
-        <span className={`font-data text-[8px] tracking-[0.2em] uppercase
-          ${dark ? "text-ink-muted" : "text-white/50"}`}>
-          Guadeloupe
-        </span>
-      </div>
-    </div>
+    <img
+      src={dark ? "/images/logo-taxi-rodgers.svg" : "/images/logo-taxi-rodgers-white.svg"}
+      alt="Logo Taxi Rodgers"
+      className={`h-10 md:h-12 w-auto object-contain ${className}`}
+    />
   );
 }
 
