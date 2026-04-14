@@ -270,8 +270,8 @@ export default function TaxiVtc() {
             <div className="relative rounded-container-lg overflow-hidden shadow-[0_20px_60px_rgba(36,57,105,0.18)]
               border border-cloud/50">
               <img
-                src="/images/mercedes-beach-vtc.webp"
-                alt="Mercedes noire premium sur plage de Guadeloupe — Taxi & VTC Rodgers"
+                src="/images/chauffeur-vtc-premium.webp"
+                alt="Chauffeur prive Taxi Rodgers accueillant un client devant une Mercedes noire — Service VTC premium Guadeloupe"
                 className="w-full h-auto object-cover aspect-[4/3]"
                 loading="lazy"
               />

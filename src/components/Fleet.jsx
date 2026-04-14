@@ -9,7 +9,7 @@ const vehicles = [
   {
     name: "Berline Premium",
     seats: "5 places",
-    image: "/images/mercedes-beach-vtc.webp",
+    image: "/images/berline-premium.webp",
     features: ["Sieges cuir & alcantara", "Climatisation bi-zone", "Coffre spacieux", "Chargeurs USB"],
   },
   {
