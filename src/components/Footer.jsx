@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-14 md:mb-20">
           {/* Brand */}
           <div className="md:col-span-4">
-            <LogoMark dark={false} className="mb-4" />
+            <LogoMark className="mb-4" />
             <p className="text-white/30 text-sm font-body font-light leading-relaxed max-w-xs">
               Votre chauffeur prive en Guadeloupe depuis 2019. Taxi et VTC premium pour vos transferts,
               excursions et deplacements medicaux.

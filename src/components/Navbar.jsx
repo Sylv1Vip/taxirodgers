@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Phone, Menu } from "lucide-react";
 
-export function LogoMark({ className = "", dark = true }) {
+export function LogoMark({ className = "" }) {
   return (
     <img
-      src={dark ? "/images/logo-taxi-rodgers.svg" : "/images/logo-taxi-rodgers-white.svg"}
+      src="/images/logo-taxi-rodgers.webp"
       alt="Logo Taxi Rodgers"
       className={`h-10 md:h-12 w-auto object-contain ${className}`}
     />
@@ -47,7 +47,7 @@ export default function Navbar() {
           }`}
       >
         <a href="#accueil" className="flex-shrink-0">
-          <LogoMark dark />
+          <LogoMark />
         </a>
 
         <div className="hidden xl:flex items-center gap-5 2xl:gap-6">
@@ -107,7 +107,7 @@ export default function Navbar() {
             transition: "all 0.6s cubic-bezier(0.25,0.46,0.45,0.94)",
           }}
         >
-          <LogoMark dark />
+          <LogoMark />
         </div>
         {links.map((link, i) => (
           <a
