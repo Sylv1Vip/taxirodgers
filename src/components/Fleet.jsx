@@ -15,7 +15,7 @@ const vehicles = [
   {
     name: "Minibus Confort",
     seats: "9 places",
-    image: "/images/taxi-road-guadeloupe.webp",
+    image: "/images/minibus-confort.webp",
     features: ["Ideal familles & groupes", "Espace bagages XXL", "Sieges inclinables", "Transferts collectifs"],
   },
 ];
