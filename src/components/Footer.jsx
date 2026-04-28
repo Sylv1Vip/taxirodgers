@@ -81,7 +81,7 @@ export default function Footer() {
             <span className="hidden sm:inline">&middot;</span>
             <a href="#" className="hover:text-white/40 transition-colors">Mentions legales</a>
             <span>&middot;</span>
-            <span>Realise par <a href="https://asanaweb.com" target="_blank" rel="noopener noreferrer" className="text-cyan/50 hover:text-cyan transition-colors">Asana Web</a></span>
+            <span>Realise par <a href="https://digitallis.fr" target="_blank" rel="noopener noreferrer" className="text-cyan/50 hover:text-cyan transition-colors">Digitallis</a></span>
           </div>
         </div>
       </div>
